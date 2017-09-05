@@ -64,7 +64,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  var messageIndex = Math.floor(Math.log(tile.value)/Math.log(2)) % textMessage.length;
+  var messageIndex = Math.floor(Math.log(tile.value) / Math.log(2) - 1) % textMessage.length;
   var textValue = textMessage[messageIndex];
   //inner.textContent = tile.value;
   inner.textContent = textValue;
