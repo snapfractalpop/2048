@@ -8,7 +8,7 @@ function HTMLActuator() {
   this.score = 0;
 }
 
-var textMessage = "Keep going you are almost there";
+var textMessage = "Keep going you are almost there".split(' ');
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
