@@ -9,7 +9,7 @@ function HTMLActuator() {
 }
 
 var textMessage = "Keep going you are almost there".split(' ');
-
+var forceghrebuild = "now please";
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
 
