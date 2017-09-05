@@ -8,6 +8,8 @@ function HTMLActuator() {
   this.score = 0;
 }
 
+var textMessage = "Keep going you are almost there";
+
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
 
@@ -67,8 +69,11 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  inner.textContent = tile.value;
-
+  var messageIndex = Math.floor(Math.log(tile.value) / Math.log(2) - 1) % textMessage.length;
+  var textValue = textMessage[messageIndex];
+  //inner.textContent = tile.value;
+  inner.textContent = textValue;
+  
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
     window.requestAnimationFrame(function () {
