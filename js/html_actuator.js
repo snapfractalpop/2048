@@ -72,6 +72,7 @@ HTMLActuator.prototype.addTile = function (tile) {
   var messageIndex = Math.floor(Math.log(tile.value) / Math.log(2) - 1) % textMessage.length;
   var textValue = textMessage[messageIndex];
   //inner.textContent = tile.value;
+  //force gh-pages rebuild
   inner.textContent = textValue;
   
   if (tile.previousPosition) {
