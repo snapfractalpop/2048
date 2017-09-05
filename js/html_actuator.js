@@ -8,8 +8,6 @@ function HTMLActuator() {
   this.score = 0;
 }
 
-var textMessage = "Keep going you are almost there".split(' ');
-var forceghrebuild = "now please";
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
 
@@ -69,11 +67,15 @@ HTMLActuator.prototype.addTile = function (tile) {
   this.applyClasses(wrapper, classes);
 
   inner.classList.add("tile-inner");
-  var messageIndex = Math.floor(Math.log(tile.value) / Math.log(2) - 1) % textMessage.length;
-  var textValue = textMessage[messageIndex];
+  
+  var messageBox = document.querySelector('.secret-message');
+  var textMessage = messageBox.value.length > 0 ? messageBox.value : "Keep going you are almost there";
+  var words = textMessage.split(' ');
+  var wordIndex = Math.floor(Math.log(tile.value) / Math.log(2) - 1) % words.length;
+  var word = words[wordIndex];
+  
   //inner.textContent = tile.value;
-  //force gh-pages rebuild
-  inner.textContent = textValue;
+  inner.textContent = word;
   
   if (tile.previousPosition) {
     // Make sure that the tile gets rendered in the previous position first
